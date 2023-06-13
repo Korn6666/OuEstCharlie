@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\lib\\cmake"
   ],
+  "SelectedNode": "\\Test Game.vcxproj.filters",
   "PreviewInSolutionExplorer": false
 }

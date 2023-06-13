@@ -1,2 +1,7 @@
-﻿  Main.cpp
-  Test Game.vcxproj -> C:\Users\matou\CSC4526\Projet\OuEstCharlie\x64\Debug\Test Game.exe
+﻿  Cell.cpp
+  DeadCell.cpp
+  LivingCell.cpp
+  GameManager.cpp
+  Main.cpp
+  Génération de code en cours...
+  Test Game.vcxproj -> C:\Users\Simon\Documents\TSP\OuEstCharlieFolder\OuEstCharlie\x64\Debug\Test Game.exe

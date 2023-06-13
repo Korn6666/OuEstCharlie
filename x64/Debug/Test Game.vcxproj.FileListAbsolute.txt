@@ -1,2 +1,3 @@
 C:\Users\matou\CSC4526\Test jeu\Test Game\x64\Debug\Test Game.exe
 C:\Users\matou\CSC4526\Projet\OuEstCharlie\x64\Debug\Test Game.exe
+C:\Users\Simon\Documents\TSP\OuEstCharlieFolder\OuEstCharlie\x64\Debug\Test Game.exe
