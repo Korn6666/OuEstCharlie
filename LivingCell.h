@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include "Cell.h"
 
 class GameManager;
@@ -7,10 +8,20 @@ class GameManager;
 class LivingCell : public Cell
 {
 public:
+	bool isDying = false;
+
 	LivingCell(int _m, int _n);
-	void action() override;
+
+	void action();
+
 	bool isAlive() const{
 		return true;
 	}
+
+	void draw(sf::RenderWindow& window);
+
+private:
+	void activateNeighbours();
+
 };
 

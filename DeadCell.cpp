@@ -1,17 +1,31 @@
 #include "DeadCell.h"
 #include "LivingCell.h"
 #include "GameManager.h"
+#include <iostream>
 
 
 DeadCell::DeadCell(int _m, int _n) {
 	m = _m;
 	n = _n;
+	activated = false;
+	InitializeNeighbours();
 }
 
 void DeadCell::action() {
+	if (activated) {
+		return;
+	}
+	else {
+		activated = true;
+	}
+	SetNeighbours();
+
 	GameManager& gameManager = GameManager::getInstance();
 	if (nbNeighbours() == 3) {
-		gameManager.grid[m][n] = new LivingCell(m, n);
+		LivingCell* cell = new LivingCell(m, n);
+		gameManager.tempLivingCells.push_back(cell);
 	}
-	gameManager.dyingCells.push_back(this);
+	else {
+		gameManager.deadActivatedCells.push_back(this);
+	}
 }
