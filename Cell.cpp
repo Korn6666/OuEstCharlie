@@ -34,7 +34,6 @@ int Cell::nbNeighbours(){
 				if (neighbours[i][j]->isAlive()) {
 					count += 1;
 				}
-
 			}
 		}
 	}

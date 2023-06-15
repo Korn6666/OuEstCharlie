@@ -6,12 +6,15 @@
 LivingCell::LivingCell(int _m, int _n) {
 	m = _m;
 	n = _n;
+	GameManager& gameManager = GameManager::getInstance();
 	isDying = false;
 	activated = false;
 	InitializeNeighbours();
 }
 
 void LivingCell::activateNeighbours() {
+	GameManager& gameManager = GameManager::getInstance();
+
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 			if ((i != 1 || j != 1)){
@@ -33,8 +36,10 @@ void LivingCell::action() {
 	SetNeighbours();
 	GameManager& gameManager = GameManager::getInstance();
 
-	std::cout << "nb neighbours of " << m << " " << n << " " << nbNeighbours() << "\n";
-	if (nbNeighbours() == 2 || nbNeighbours() == 3) {
+	//std::cout << "nb neighbours of " << m << " " << n << " " << nbNeighbours() << "\n";
+	//std::cout << "neighbours" << m << " " << n << "\n";
+	int nbNeigboursInt = nbNeighbours();
+	if (nbNeigboursInt == 2 || nbNeigboursInt == 3) {
 		gameManager.tempLivingCells.push_back(this);
 	}
 	else {

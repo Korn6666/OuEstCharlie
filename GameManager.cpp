@@ -39,40 +39,34 @@ void GameManager::majVectors()
 	int m;
 	int n;
 	livingCells = tempLivingCells;
+
+	//add the dyingCells to grid
 	for (auto const& cell : dyingCells) {
 		m = cell->m;
 		n = cell->n;
-		DeadCell* deadCell = new DeadCell(m, n);
-		grid[m][n] = deadCell;
-	}
-	//delete from livingCells and grid by isDying
-	for (auto it = livingCells.rbegin(); it != livingCells.rend(); ) {
-		LivingCell* cell = *it;
 
-		if (cell->isDying) {
-			m = cell->m;
-			n = cell->n;
-			// delete from grid and replace by a deadcell
-			//DeadCell* deadCell = new DeadCell(m, n);
-			//grid[m][n] = deadCell;
-			// delete from livingCells
-			delete *it;
-			it = std::vector<LivingCell*>::reverse_iterator(livingCells.erase(std::next(it).base()));
-		}
-		else {
-			++it;
+		if (grid[m][n]->isAlive())
+		{
+			DeadCell* deadCell = new DeadCell(m, n);
+			grid[m][n] = deadCell;
 		}
 	}
 
-	//add from livingCells to grid
+	//add the livingCells to grid
 	for (auto const& cell : livingCells) {
 		m = cell->m;
 		n = cell->n;
-		LivingCell* livingCell = new LivingCell(m, n);
-		livingCell->activated = false;
-		grid[m][n] = livingCell;
-	}
 
+
+		cell->isDying = false;
+		cell->activated = false;
+
+		if ( m < grid.size() - 3 && n < grid.size() - 3 && m > 3 && n > 3 && !grid[m][n]->isAlive())
+			grid[m][n] = cell;  
+	}
+	  
+	//std::cout << "nb livingcells : " << livingCells.size() << "\n";
+	// desactivate the deadcells
 	for (auto const& cell : deadActivatedCells) {
 		cell->activated = false;
 	}
