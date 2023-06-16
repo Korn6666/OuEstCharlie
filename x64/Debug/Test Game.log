@@ -1,9 +1,7 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(5467,5): warning MSB3061: Impossible de supprimer le fichier "C:\Users\Simon\Documents\TSP\OuEstCharlieFolder\OuEstCharlie\x64\Debug\Test Game.exe". L'accès au chemin d'accès 'C:\Users\Simon\Documents\TSP\OuEstCharlieFolder\OuEstCharlie\x64\Debug\Test Game.exe' est refusé.
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets(77,5): warning : L'accès au chemin d'accès 'c:\users\simon\documents\tsp\ouestcharliefolder\ouestcharlie\x64\debug\test game.exe' est refusé.
-  Cell.cpp
+﻿  Cell.cpp
   DeadCell.cpp
-  LivingCell.cpp
   GameManager.cpp
+  LivingCell.cpp
   Main.cpp
   Génération de code en cours...
-LINK : fatal error LNK1104: impossible d'ouvrir le fichier 'C:\Users\Simon\Documents\TSP\OuEstCharlieFolder\OuEstCharlie\x64\Debug\Test Game.exe'
+  Test Game.vcxproj -> C:\Users\Simon\Documents\TSP\OuEstCharlieFolder\copie\OuEstCharlie\x64\Debug\Test Game.exe

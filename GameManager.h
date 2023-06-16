@@ -71,19 +71,22 @@ private:
             allDeadCells[i].resize(numCols);
 
             for (int j = 0; j < numCols; j++) {
-            //    randint = rand() % 100;
-            //    if (randint > 50)
-            //    {
-            //        grid[i][j] = make_unique<DeadCell>(m,n);
-            //    }
-            //    else {
-            //        SetLivingCell(i, j);
-            //    }
+
                 allLivingCells[i][j] = std::make_unique<LivingCell>(i, j);
                 allDeadCells[i][j] = std::make_unique<DeadCell>(i, j);
                 grid[i][j] = allDeadCells[i][j].get();
+                grid[i][j] = allDeadCells[i][j].get();
+                randint = rand() % 100;
+                if (randint > 30)
+                {
+                    //grid[i][j] = allDeadCells[i][j].get();
+                }
+                else {
+                    SetLivingCell(i, j);
+                }
             }
         }
+        SetLivingCell(50, 50);
     }
 
 };

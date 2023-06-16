@@ -23,6 +23,8 @@ public:
 
 	std::string dump();
 
+	int frameAlive = 0;
+
 private:
 	void activateNeighbours();
 

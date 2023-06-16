@@ -10,9 +10,12 @@ using namespace std;
 GameManager GameManager::instance;
 
 void GameManager::SetLivingCell(int m, int n) {
+	if (!(m < 100 - 3 && n < 100 - 3 && m > 3 && n > 3))
+		return;
 	LivingCell* cell = allLivingCells[m][n].get();
 	//LivingCell* cell = new LivingCell(m, n);
 	grid[m][n] = cell;
+	//std::cout << "yap" << endl;
 	livingCells.push_back(cell);
 }
 
@@ -54,6 +57,9 @@ void GameManager::majVectors()
 		n = cell->n;
 		if (grid[m][n]->isAlive())
 		{
+			allLivingCells[m][n]->isDying = false;
+			allLivingCells[m][n]->activated = false;
+			allLivingCells[m][n]->frameAlive = 0;
 			grid[m][n] = allDeadCells[m][n].get();
 		}
 	}
@@ -70,7 +76,6 @@ void GameManager::majVectors()
 		if ( m < grid.size() - 3 && n < grid.size() - 3 && m > 3 && n > 3 && !grid[m][n]->isAlive())
 			grid[m][n] = allLivingCells[m][n].get();
 	}
-
 
 	// desactivate the deadcells
 	for (auto const& cell : deadActivatedCells) {

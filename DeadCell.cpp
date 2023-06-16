@@ -27,7 +27,7 @@ void DeadCell::action() {
 		LivingCell* cell = gameManager.allLivingCells[m][n].get();
 		//LivingCell* cell = new LivingCell(m, n);
 		gameManager.tempLivingCells.push_back(cell);
-		cout << dump();
+		//cout << dump();
 	}
 	
 	gameManager.deadActivatedCells.push_back(gameManager.allDeadCells[m][n].get());

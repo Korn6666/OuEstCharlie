@@ -59,23 +59,41 @@ int main()
     //gameManager.SetLivingCell(12, 10);
 
     //Grenouille
-    gameManager.SetLivingCell(10, 10);
-    gameManager.SetLivingCell(11, 10);
-    gameManager.SetLivingCell(12, 10);
-    gameManager.SetLivingCell(11, 9);
-    gameManager.SetLivingCell(12, 9);
-    gameManager.SetLivingCell(13, 9);
-
-    ////Vaisseau
     //gameManager.SetLivingCell(10, 10);
     //gameManager.SetLivingCell(11, 10);
     //gameManager.SetLivingCell(12, 10);
+    //gameManager.SetLivingCell(11, 9);
     //gameManager.SetLivingCell(12, 9);
-    //gameManager.SetLivingCell(11, 8);
+    //gameManager.SetLivingCell(13, 9);
+
+    ////Vaisseau en haut à gauche
+    gameManager.SetLivingCell(10, 10);
+    gameManager.SetLivingCell(11, 10);
+    gameManager.SetLivingCell(12, 10);
+    gameManager.SetLivingCell(12, 9);
+    gameManager.SetLivingCell(11, 8);
+
+    ////Vaisseau en haut à droite
+    gameManager.SetLivingCell(90, 10);
+    gameManager.SetLivingCell(89, 10);
+    gameManager.SetLivingCell(88, 10);
+    gameManager.SetLivingCell(88, 9);
+    gameManager.SetLivingCell(89, 8);
+
+    ////Vaisseau en bas à droite
+    gameManager.SetLivingCell(90, 90);
+    gameManager.SetLivingCell(89, 90);
+    gameManager.SetLivingCell(88, 90);
+    gameManager.SetLivingCell(88, 89);
+    gameManager.SetLivingCell(89, 88);
+
+    //Test bordure
+    //gameManager.SetLivingCell(99, 99);
 
 
-    sf::RenderWindow window(sf::VideoMode(800, 800), "SFML works!");
-    window.clear(sf::Color::White);
+    sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
+    window.clear(sf::Color::Black);
+    int compteur = 0;
     while (window.isOpen())
     {
         sf::Event event;
@@ -85,14 +103,48 @@ int main()
                 window.close();
         }
 
-        window.clear(sf::Color::White);
+        window.clear(sf::Color::Black);
         gameManager.drawLivingCells(window);
         gameManager.clearVectors();
         gameManager.actionCells();
         gameManager.majVectors();
         window.display();
-        Sleep(20);
-        std::cout << "new Frame \n";
+
+        compteur += 1;
+        if (compteur == 100) {
+            compteur = 0;
+            ////Vaisseau en haut à gauche
+            gameManager.SetLivingCell(10, 10);
+            gameManager.SetLivingCell(11, 10);
+            gameManager.SetLivingCell(12, 10);
+            gameManager.SetLivingCell(12, 9);
+            gameManager.SetLivingCell(11, 8);
+
+            ////Vaisseau en haut à droite
+            gameManager.SetLivingCell(90, 10);
+            gameManager.SetLivingCell(89, 10);
+            gameManager.SetLivingCell(88, 10);
+            gameManager.SetLivingCell(88, 9);
+            gameManager.SetLivingCell(89, 8);
+
+            ////Vaisseau en bas à droite
+            gameManager.SetLivingCell(90, 90);
+            gameManager.SetLivingCell(89, 90);
+            gameManager.SetLivingCell(88, 90);
+            gameManager.SetLivingCell(88, 91);
+            gameManager.SetLivingCell(89, 92);
+
+            ////Vaisseau en bas à gauche
+            gameManager.SetLivingCell(10, 90);
+            gameManager.SetLivingCell(11, 90);
+            gameManager.SetLivingCell(12, 90);
+            gameManager.SetLivingCell(12, 91);
+            gameManager.SetLivingCell(11, 92);
+
+            
+        }
+        //Sleep(50);
+        //std::cout << "new Frame \n";
     }
     
 

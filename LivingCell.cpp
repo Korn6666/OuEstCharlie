@@ -62,7 +62,22 @@ void LivingCell::action() {
 
 void LivingCell::draw(sf::RenderWindow& window) {
 	sf::RectangleShape square(sf::Vector2f(squareSize, squareSize));
-	square.setFillColor(sf::Color::Black);
+	if (frameAlive == 0) {
+		frameAlive += 1;
+		square.setFillColor(sf::Color::Blue);
+	}else 	if (frameAlive == 1) {
+		frameAlive += 1;
+		square.setFillColor(sf::Color::Cyan);
+	}else 	if (frameAlive == 2) {
+		frameAlive += 1;
+		square.setFillColor(sf::Color::Green);
+	}else 	if (frameAlive == 3) {
+		frameAlive += 1;
+		square.setFillColor(sf::Color::Yellow);
+	}else 	if (frameAlive == 4) {
+		square.setFillColor(sf::Color::Red);
+	}
+	//square.setFillColor(sf::Color::White);
 	square.setPosition(m * squareSize, n * squareSize);
 	window.draw(square);
 }
