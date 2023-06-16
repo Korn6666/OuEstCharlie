@@ -14,9 +14,13 @@ class GameManager
 public:
     GameManager(const GameManager&) = delete;
     static GameManager& getInstance() {
-        
         return instance;
     }
+
+    //All possible living cells
+    std::vector<std::vector<std::unique_ptr<LivingCell>>> allLivingCells;
+    //All possible dead cells
+    std::vector<std::vector<std::unique_ptr<DeadCell>>> allDeadCells;
 
     // Grid with all the LivingCells and DeadCells
     std::vector<std::vector<Cell*>> grid;
@@ -56,21 +60,28 @@ private:
         int numCols = size;
 
         grid.resize(numRows);
+        allLivingCells.resize(numRows);
+        allDeadCells.resize(numRows);
+
 
         for (int i = 0; i < numRows; i++) {
 
             grid[i].resize(numCols);
+            allLivingCells[i].resize(numCols);
+            allDeadCells[i].resize(numCols);
 
             for (int j = 0; j < numCols; j++) {
-                randint = rand() % 100;
-                if (randint > 50)
-                {
-                    grid[i][j] = new DeadCell(i, j);
-                }
-                else {
-                    SetLivingCell(i, j);
-                }
-                //grid[i][j] = new DeadCell(i, j);
+            //    randint = rand() % 100;
+            //    if (randint > 50)
+            //    {
+            //        grid[i][j] = make_unique<DeadCell>(m,n);
+            //    }
+            //    else {
+            //        SetLivingCell(i, j);
+            //    }
+                allLivingCells[i][j] = std::make_unique<LivingCell>(i, j);
+                allDeadCells[i][j] = std::make_unique<DeadCell>(i, j);
+                grid[i][j] = allDeadCells[i][j].get();
             }
         }
     }

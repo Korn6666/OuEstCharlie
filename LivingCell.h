@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Cell.h"
 
+
 class GameManager;
 
 
@@ -19,6 +20,8 @@ public:
 	}
 
 	void draw(sf::RenderWindow& window);
+
+	std::string dump();
 
 private:
 	void activateNeighbours();

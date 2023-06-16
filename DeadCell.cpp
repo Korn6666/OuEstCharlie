@@ -2,7 +2,9 @@
 #include "LivingCell.h"
 #include "GameManager.h"
 #include <iostream>
+#include <memory>
 
+using namespace std;
 
 DeadCell::DeadCell(int _m, int _n) {
 	m = _m;
@@ -22,10 +24,12 @@ void DeadCell::action() {
 
 	GameManager& gameManager = GameManager::getInstance();
 	if (nbNeighbours() == 3) {
-		LivingCell* cell = new LivingCell(m, n);
+		LivingCell* cell = gameManager.allLivingCells[m][n].get();
+		//LivingCell* cell = new LivingCell(m, n);
 		gameManager.tempLivingCells.push_back(cell);
+		cout << dump();
 	}
-	else {
-		gameManager.deadActivatedCells.push_back(this);
-	}
+	
+	gameManager.deadActivatedCells.push_back(gameManager.allDeadCells[m][n].get());
+	
 }

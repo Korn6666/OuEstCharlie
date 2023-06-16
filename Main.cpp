@@ -59,19 +59,19 @@ int main()
     //gameManager.SetLivingCell(12, 10);
 
     //Grenouille
-    //gameManager.SetLivingCell(10, 10);
-    //gameManager.SetLivingCell(11, 10);
-    //gameManager.SetLivingCell(12, 10);
-    //gameManager.SetLivingCell(11, 9);
-    //gameManager.SetLivingCell(12, 9);
-    //gameManager.SetLivingCell(13, 9);
-
-    //Vaisseau
     gameManager.SetLivingCell(10, 10);
     gameManager.SetLivingCell(11, 10);
     gameManager.SetLivingCell(12, 10);
+    gameManager.SetLivingCell(11, 9);
     gameManager.SetLivingCell(12, 9);
-    gameManager.SetLivingCell(11, 8);
+    gameManager.SetLivingCell(13, 9);
+
+    ////Vaisseau
+    //gameManager.SetLivingCell(10, 10);
+    //gameManager.SetLivingCell(11, 10);
+    //gameManager.SetLivingCell(12, 10);
+    //gameManager.SetLivingCell(12, 9);
+    //gameManager.SetLivingCell(11, 8);
 
 
     sf::RenderWindow window(sf::VideoMode(800, 800), "SFML works!");

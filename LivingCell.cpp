@@ -2,6 +2,9 @@
 #include "DeadCell.h"
 #include "GameManager.h"
 #include <iostream>
+#include <sstream>
+
+using namespace std;
 
 LivingCell::LivingCell(int _m, int _n) {
 	m = _m;
@@ -39,15 +42,21 @@ void LivingCell::action() {
 	//std::cout << "nb neighbours of " << m << " " << n << " " << nbNeighbours() << "\n";
 	//std::cout << "neighbours" << m << " " << n << "\n";
 	int nbNeigboursInt = nbNeighbours();
+	int i = this->m;
+	int j = this->n;
 	if (nbNeigboursInt == 2 || nbNeigboursInt == 3) {
-		gameManager.tempLivingCells.push_back(this);
+		gameManager.tempLivingCells.push_back(gameManager.allLivingCells[i][j].get());
+		
 	}
 	else {
 		//to delete from grid
-		gameManager.dyingCells.push_back(this);
+		gameManager.dyingCells.push_back(gameManager.allLivingCells[i][j].get());
 		//to delete from livingCells
 		isDying = true;
 	}
+
+	//cout << dump();
+
 	activateNeighbours();
 }
 
@@ -56,6 +65,16 @@ void LivingCell::draw(sf::RenderWindow& window) {
 	square.setFillColor(sf::Color::Black);
 	square.setPosition(m * squareSize, n * squareSize);
 	window.draw(square);
+}
+
+
+std::string LivingCell::dump() {
+	string baseString = Cell::dump();
+	ostringstream oss;
+	oss << baseString;
+	oss << "isDying: " << isDying << endl << endl;
+
+	return oss.str();
 }
 
 

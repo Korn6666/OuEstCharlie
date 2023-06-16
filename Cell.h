@@ -1,5 +1,7 @@
 #pragma once
 #include <vector>
+#include <memory>
+#include <string>
 
 class Cell
 {
@@ -25,5 +27,7 @@ public:
 	virtual int nbNeighbours();
 
 	static float squareSize;
+
+	virtual std::string dump();
 };
 

@@ -1,7 +1,10 @@
 #include "Cell.h"
 #include "GameManager.h"
 #include <iostream>
+#include <sstream>
 //Déclaration de la variable statique squareSize
+
+using namespace std;
 float Cell::squareSize = 10;
 
 void Cell::InitializeNeighbours() {
@@ -20,7 +23,7 @@ void Cell::SetNeighbours() {
 		for (int j = 0; j < 3; j++) {
 			if (i != 1 || j != 1) {
 				//std::cout << "In Cell " << gameManager.grid[m + i -1][n + j - 1]->isAlive() << "\n";
-				neighbours[i][j] = gameManager.grid[m+i-1][n+j-1];
+				neighbours[i][j] = gameManager.grid[m + i - 1][n + j - 1];
 			}
 		}
 	}
@@ -39,6 +42,21 @@ int Cell::nbNeighbours(){
 	}
 	return count;
 }
+
+std::string Cell::dump() {
+	ostringstream oss;
+	if (this->isAlive()) {
+		oss << " LivingCell " << "(" << m << "," << n << ") " << endl;
+	}
+	else
+	{
+		oss << " DeadCell " << "(" << m << "," << n << ") " << endl;
+	}
+	oss << "activated: " << activated << endl;
+
+	return oss.str();
+}
+
 
 
 

@@ -10,7 +10,8 @@ using namespace std;
 GameManager GameManager::instance;
 
 void GameManager::SetLivingCell(int m, int n) {
-	LivingCell* cell = new LivingCell(m, n);
+	LivingCell* cell = allLivingCells[m][n].get();
+	//LivingCell* cell = new LivingCell(m, n);
 	grid[m][n] = cell;
 	livingCells.push_back(cell);
 }
@@ -29,46 +30,53 @@ void GameManager::clearVectors(){
 
 void GameManager::actionCells() {
 	tempLivingCells.clear();
+	int m;
+	int n;
+
+	//std::cout << "nb livingcells : " << livingCells.size() << "\n";
+
 	for (auto const& cell : livingCells) {
-		cell->action();
+		m = cell->m;
+		n = cell->n;
+		allLivingCells[m][n]->action();
 	}
+	livingCells = tempLivingCells;
 }
 
 void GameManager::majVectors() 
 {
 	int m;
 	int n;
-	livingCells = tempLivingCells;
 
 	//add the dyingCells to grid
 	for (auto const& cell : dyingCells) {
 		m = cell->m;
 		n = cell->n;
-
 		if (grid[m][n]->isAlive())
 		{
-			DeadCell* deadCell = new DeadCell(m, n);
-			grid[m][n] = deadCell;
+			grid[m][n] = allDeadCells[m][n].get();
 		}
 	}
 
-	//add the livingCells to grid
-	for (auto const& cell : livingCells) {
+
+	//add the tempLivingCells to grid
+	for (auto& cell : livingCells) {
 		m = cell->m;
 		n = cell->n;
 
-
-		cell->isDying = false;
-		cell->activated = false;
+		allLivingCells[m][n]->isDying = false;
+		allLivingCells[m][n]->activated = false;
 
 		if ( m < grid.size() - 3 && n < grid.size() - 3 && m > 3 && n > 3 && !grid[m][n]->isAlive())
-			grid[m][n] = cell;  
+			grid[m][n] = allLivingCells[m][n].get();
 	}
-	  
-	//std::cout << "nb livingcells : " << livingCells.size() << "\n";
+
+
 	// desactivate the deadcells
 	for (auto const& cell : deadActivatedCells) {
-		cell->activated = false;
+		m = cell->m;
+		n = cell->n;
+		allDeadCells[m][n]->activated = false;
 	}
 }
 
