@@ -17,6 +17,7 @@ DeadCell::DeadCell(int _m, int _n) {
 void DeadCell::action() {
 	if (isCharlie)
 		return;
+
 	if (activated) {
 		return;
 	}
@@ -34,5 +35,4 @@ void DeadCell::action() {
 	}
 	
 	gameManager.deadActivatedCells.push_back(gameManager.allDeadCells[m][n].get());
-	
 }

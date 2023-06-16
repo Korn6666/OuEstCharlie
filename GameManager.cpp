@@ -89,18 +89,35 @@ void GameManager::SetCharlie(int m, int n) {
 	//     . . 
 	//     . . 
 
-	SetCharlieCell(m, n);
-	SetCharlieCell(m, n + 1);
-	SetCharlieCell(m + 1, n);
-	SetCharlieCell(m + 1, n + 1);
+	SetCharlieLivingCell(m, n);
+	SetCharlieLivingCell(m, n + 1);
+	SetCharlieLivingCell(m + 1, n);
+	SetCharlieLivingCell(m + 1, n + 1);
+
+	//for (int i = 0; i < 4; i++) {
+	//	SetCharlieDeadCell(m -1 + i, n - 1);
+	//	SetCharlieDeadCell(m - 1 + i, n - 1 + 3);
+	//}
+	//SetCharlieDeadCell(m, n - 1);
+	//SetCharlieDeadCell(m+1, n - 1);
+	//SetCharlieDeadCell(m, n + 2);
+	//SetCharlieDeadCell(m + 1, n + 2);
 }
 
-void GameManager::SetCharlieCell(int i, int j) {
+void GameManager::SetCharlieLivingCell(int i, int j) {
 	allLivingCells[i][j]->isCharlie = true;
 	LivingCell* cell = allLivingCells[i][j].get();
 
 	grid[i][j] = cell;
 
 	livingCells.push_back(cell);
+}
+
+void GameManager::SetCharlieDeadCell(int i, int j) {
+	allDeadCells[i][j]->isCharlie = true;
+	allLivingCells[i][j]->isCharlie = true;
+	DeadCell* cell = allDeadCells[i][j].get();
+
+	grid[i][j] = cell;
 }
 

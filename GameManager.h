@@ -50,7 +50,9 @@ public:
 
     void majVectors();
     void SetCharlie(int m, int n);
-    void SetCharlieCell(int i, int j);
+    void SetCharlieLivingCell(int i, int j);
+    void SetCharlieDeadCell(int i, int j);
+
 
 private:
     int size = 100;

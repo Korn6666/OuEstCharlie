@@ -118,33 +118,33 @@ int main()
         compteur += 1;
         if (compteur == 100) {
             compteur = 0;
-            ////Vaisseau en haut à gauche
-            gameManager.SetLivingCell(10, 10);
-            gameManager.SetLivingCell(11, 10);
-            gameManager.SetLivingCell(12, 10);
-            gameManager.SetLivingCell(12, 9);
-            gameManager.SetLivingCell(11, 8);
+            //////Vaisseau en haut à gauche
+            //gameManager.SetLivingCell(10, 10);
+            //gameManager.SetLivingCell(11, 10);
+            //gameManager.SetLivingCell(12, 10);
+            //gameManager.SetLivingCell(12, 9);
+            //gameManager.SetLivingCell(11, 8);
 
-            ////Vaisseau en haut à droite
-            gameManager.SetLivingCell(90, 10);
-            gameManager.SetLivingCell(89, 10);
-            gameManager.SetLivingCell(88, 10);
-            gameManager.SetLivingCell(88, 9);
-            gameManager.SetLivingCell(89, 8);
+            //////Vaisseau en haut à droite
+            //gameManager.SetLivingCell(90, 10);
+            //gameManager.SetLivingCell(89, 10);
+            //gameManager.SetLivingCell(88, 10);
+            //gameManager.SetLivingCell(88, 9);
+            //gameManager.SetLivingCell(89, 8);
 
-            ////Vaisseau en bas à droite
-            gameManager.SetLivingCell(90, 90);
-            gameManager.SetLivingCell(89, 90);
-            gameManager.SetLivingCell(88, 90);
-            gameManager.SetLivingCell(88, 91);
-            gameManager.SetLivingCell(89, 92);
+            //////Vaisseau en bas à droite
+            //gameManager.SetLivingCell(90, 90);
+            //gameManager.SetLivingCell(89, 90);
+            //gameManager.SetLivingCell(88, 90);
+            //gameManager.SetLivingCell(88, 91);
+            //gameManager.SetLivingCell(89, 92);
 
-            ////Vaisseau en bas à gauche
-            gameManager.SetLivingCell(10, 90);
-            gameManager.SetLivingCell(11, 90);
-            gameManager.SetLivingCell(12, 90);
-            gameManager.SetLivingCell(12, 91);
-            gameManager.SetLivingCell(11, 92);
+            //////Vaisseau en bas à gauche
+            //gameManager.SetLivingCell(10, 90);
+            //gameManager.SetLivingCell(11, 90);
+            //gameManager.SetLivingCell(12, 90);
+            //gameManager.SetLivingCell(12, 91);
+            //gameManager.SetLivingCell(11, 92);
 
             
         }

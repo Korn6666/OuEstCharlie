@@ -1,8 +1,4 @@
-﻿  Cell.cpp
-  DeadCell.cpp
+﻿  DeadCell.cpp
   GameManager.cpp
-  LivingCell.cpp
-  Main.cpp
-C:\Users\Simon\Documents\TSP\OuEstCharlieFolder\copie\OuEstCharlie\Main.cpp(96,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
   Génération de code en cours...
   Test Game.vcxproj -> C:\Users\Simon\Documents\TSP\OuEstCharlieFolder\copie\OuEstCharlie\x64\Debug\Test Game.exe

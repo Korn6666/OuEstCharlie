@@ -42,7 +42,8 @@ void LivingCell::action() {
 	GameManager& gameManager = GameManager::getInstance();
 
 	if (isCharlie) {
-		gameManager.tempLivingCells.push_back(gameManager.allLivingCells[m][n].get());
+		if (gameManager.grid[m][n]->isAlive())
+			gameManager.tempLivingCells.push_back(gameManager.allLivingCells[m][n].get());
 		return;
 	}
 

@@ -27,4 +27,3 @@ public:
 private:
 	void activateNeighbours();
 };
-
