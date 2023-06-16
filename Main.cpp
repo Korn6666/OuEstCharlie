@@ -93,6 +93,10 @@ int main()
 
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
     window.clear(sf::Color::Black);
+    std::srand(std::time(nullptr));
+    int xaC = rand() % 80 + 10;
+    int yaC = rand() % 50 + 25;
+    gameManager.SetCharlie(xaC, yaC);
     int compteur = 0;
     while (window.isOpen())
     {
@@ -104,6 +108,7 @@ int main()
         }
 
         window.clear(sf::Color::Black);
+        
         gameManager.drawLivingCells(window);
         gameManager.clearVectors();
         gameManager.actionCells();

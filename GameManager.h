@@ -49,12 +49,14 @@ public:
     void actionCells();
 
     void majVectors();
-
+    void SetCharlie(int m, int n);
+    void SetCharlieCell(int i, int j);
 
 private:
     int size = 100;
     int randint = 1;
     static GameManager instance;
+
     GameManager() {
         int numRows = size;
         int numCols = size;

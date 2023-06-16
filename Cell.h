@@ -18,6 +18,8 @@ public:
 	int n;
 	bool activated;
 
+	bool isCharlie;
+
 	virtual void action() = 0;
 
 	virtual bool isAlive() const = 0;

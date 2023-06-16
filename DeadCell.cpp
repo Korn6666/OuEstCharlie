@@ -10,10 +10,13 @@ DeadCell::DeadCell(int _m, int _n) {
 	m = _m;
 	n = _n;
 	activated = false;
+	isCharlie = false;
 	InitializeNeighbours();
 }
 
 void DeadCell::action() {
+	if (isCharlie)
+		return;
 	if (activated) {
 		return;
 	}

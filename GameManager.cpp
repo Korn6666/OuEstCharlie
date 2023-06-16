@@ -57,7 +57,6 @@ void GameManager::majVectors()
 		n = cell->n;
 		if (grid[m][n]->isAlive())
 		{
-			allLivingCells[m][n]->isDying = false;
 			allLivingCells[m][n]->activated = false;
 			allLivingCells[m][n]->frameAlive = 0;
 			grid[m][n] = allDeadCells[m][n].get();
@@ -70,7 +69,6 @@ void GameManager::majVectors()
 		m = cell->m;
 		n = cell->n;
 
-		allLivingCells[m][n]->isDying = false;
 		allLivingCells[m][n]->activated = false;
 
 		if ( m < grid.size() - 3 && n < grid.size() - 3 && m > 3 && n > 3 && !grid[m][n]->isAlive())
@@ -83,5 +81,26 @@ void GameManager::majVectors()
 		n = cell->n;
 		allDeadCells[m][n]->activated = false;
 	}
+}
+
+void GameManager::SetCharlie(int m, int n) {
+	// Schéma: . = Cellule vivante
+   
+	//     . . 
+	//     . . 
+
+	SetCharlieCell(m, n);
+	SetCharlieCell(m, n + 1);
+	SetCharlieCell(m + 1, n);
+	SetCharlieCell(m + 1, n + 1);
+}
+
+void GameManager::SetCharlieCell(int i, int j) {
+	allLivingCells[i][j]->isCharlie = true;
+	LivingCell* cell = allLivingCells[i][j].get();
+
+	grid[i][j] = cell;
+
+	livingCells.push_back(cell);
 }
 

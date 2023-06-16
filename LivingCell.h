@@ -9,7 +9,6 @@ class GameManager;
 class LivingCell : public Cell
 {
 public:
-	bool isDying = false;
 
 	LivingCell(int _m, int _n);
 
@@ -27,6 +26,5 @@ public:
 
 private:
 	void activateNeighbours();
-
 };
 

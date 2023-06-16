@@ -10,8 +10,8 @@ LivingCell::LivingCell(int _m, int _n) {
 	m = _m;
 	n = _n;
 	GameManager& gameManager = GameManager::getInstance();
-	isDying = false;
 	activated = false;
+	isCharlie = false;
 	InitializeNeighbours();
 }
 
@@ -29,6 +29,8 @@ void LivingCell::activateNeighbours() {
 }
 
 void LivingCell::action() {
+
+
 	if (activated) {
 		return;
 	}
@@ -38,6 +40,11 @@ void LivingCell::action() {
 
 	SetNeighbours();
 	GameManager& gameManager = GameManager::getInstance();
+
+	if (isCharlie) {
+		gameManager.tempLivingCells.push_back(gameManager.allLivingCells[m][n].get());
+		return;
+	}
 
 	//std::cout << "nb neighbours of " << m << " " << n << " " << nbNeighbours() << "\n";
 	//std::cout << "neighbours" << m << " " << n << "\n";
@@ -52,7 +59,6 @@ void LivingCell::action() {
 		//to delete from grid
 		gameManager.dyingCells.push_back(gameManager.allLivingCells[i][j].get());
 		//to delete from livingCells
-		isDying = true;
 	}
 
 	//cout << dump();
@@ -87,7 +93,6 @@ std::string LivingCell::dump() {
 	string baseString = Cell::dump();
 	ostringstream oss;
 	oss << baseString;
-	oss << "isDying: " << isDying << endl << endl;
 
 	return oss.str();
 }
