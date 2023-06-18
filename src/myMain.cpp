@@ -202,6 +202,7 @@ int myMain()
 
 
             }
+            Sleep(15); //temps entre les frames
         }
         else if (menu.stateValue == "end") {
             menu.DrawEnd(window);
@@ -210,7 +211,6 @@ int myMain()
             window.close();
         }
 
-        //Sleep(50);
         //std::cout << "new Frame \n";
 
 
