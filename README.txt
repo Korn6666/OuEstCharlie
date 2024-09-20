@@ -8,7 +8,7 @@ Video Demo there:
 https://drive.google.com/file/d/12xJkkIRR4ZQI3nhyjOEvbtk8D9KIzXN3/view?usp=drive_link
 
 Rules: 
-Find Charlie!! 
+Find Charlie and click on him!! 
 
 This game is founded on Conway’s Game of Life : https://playgameoflife.com
 It's a cellular automaton rules by 2 rules:
